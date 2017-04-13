@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Microlite20.GUIControllers.createCharacter"
+             Title="Create a Character">
+
+    <Label Text="Character Name"></Label>
+    <Entry x:Name="CharacterName" Placeholder="Enigo Dupont"></Entry>
+    
+    <Label Text="Class"></Label>
+    <Picker x:Name="Class">
+        <Picker.Items>
+            <TextCell>Fighter</TextCell>
+            <TextCell>Magi</TextCell>
+            <TextCell>Rougue</TextCell>
+            <TextCell>Cleric</TextCell>
+        </Picker.Items>
+    </Picker>
+    
+    
+</ContentPage>

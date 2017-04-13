@@ -9,21 +9,27 @@
     <Import_RootNamespace>MicroLite20</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)GUIControllers\createCharacter.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)GUIControllers\MainMenu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GUIControllers\createCharacter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)GUIControllers\MainMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PlayerClasses\Cleric.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlayerClasses\Fighter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlayerClasses\Magi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlayerClasses\playerClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlayerClasses\Rouge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlayerData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\DiceRoller.cs" />
   </ItemGroup>
 </Project>

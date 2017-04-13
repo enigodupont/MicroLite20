@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Microlite20.GUIControllers.MainMenu"
+             Title="Welcome to Microlite20">
+
+    <Button Text="Show All Characters">
+        
+    </Button>
+
+    <Button Text="Add New Character" x:Name="addCharButton">
+      
+    </Button>
+</ContentPage>
