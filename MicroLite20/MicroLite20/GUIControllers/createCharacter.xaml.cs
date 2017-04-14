@@ -35,7 +35,7 @@ namespace MicroLite20.GUIControllers
 
             await DisplayAlert("Roll Results", "Your Rolled\nSTR: " + STR + "\nDEX: " + DEX + "\nMIND: " + MIND, "Understood");
 
-            //Navigation.PushAsync(new displayCharacter(new PlayerData(STR,DEX,MIND,Class.SelectedItem as String)))
+            await Navigation.PushAsync(new displayCharacter(new CharacterData(STR, DEX, MIND, Class.Items[Class.SelectedIndex], CharacterName.Text)));
         }
 
         private void enableRollStats() {

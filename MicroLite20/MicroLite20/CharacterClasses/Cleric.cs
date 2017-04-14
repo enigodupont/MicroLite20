@@ -1,10 +1,11 @@
 ﻿namespace MicroLite20.Classes {
-    class Rouge : playerClass {
+    public class Cleric : CharacterClass {
 
-        Rouge() {
+        public Cleric() {
+            communicationBonus = 3;
             canUseLArmor = true;
-
-            subterfugeBonus = 3;
+            canUseMArmor = true;
+            canCastDivine = true;
         }
 
         public override void levelUp(int level) {

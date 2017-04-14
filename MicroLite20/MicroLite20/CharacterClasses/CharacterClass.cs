@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MicroLite20.Classes {
-    abstract class playerClass {
+    abstract public class CharacterClass {
 
         //Armor Shield booleans
         public bool canUseShields = false;
@@ -28,6 +28,7 @@ namespace MicroLite20.Classes {
         public bool canCastDivine = false;
 
         public abstract void levelUp(int level);
+
 
     }
 }

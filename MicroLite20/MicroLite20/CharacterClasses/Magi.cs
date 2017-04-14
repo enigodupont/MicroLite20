@@ -1,7 +1,7 @@
 ﻿namespace MicroLite20.Classes {
-    class Magi : playerClass {
+    public class Magi : CharacterClass {
 
-        Magi() {
+        public Magi() {
             knowledgeBonus = 3;
             canCastArcane = true;
         }

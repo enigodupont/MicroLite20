@@ -1,7 +1,7 @@
 ﻿namespace MicroLite20.Classes {
-    class Fighter : playerClass {
+    public class Fighter : CharacterClass {
 
-        Fighter() {
+        public Fighter() {
             canUseShields = true;
             canUseLArmor = true;
             canUseMArmor = true;

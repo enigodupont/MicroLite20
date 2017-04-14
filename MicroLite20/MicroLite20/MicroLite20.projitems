@@ -21,15 +21,23 @@
     <Compile Include="$(MSBuildThisFileDirectory)GUIControllers\createCharacter.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)GUIControllers\displayCharacter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)GUIControllers\MainMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)PlayerClasses\Cleric.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)PlayerClasses\Fighter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)PlayerClasses\Magi.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)PlayerClasses\playerClass.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)PlayerClasses\Rouge.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)PlayerData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CharacterClasses\Cleric.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CharacterClasses\Fighter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CharacterClasses\Magi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CharacterClasses\CharacterClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CharacterClasses\Rogue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CharacterData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utility\DiceRoller.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)GUIControllers\displayCharacter.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

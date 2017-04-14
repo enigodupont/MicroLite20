@@ -7,22 +7,22 @@
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
 
-        <Label HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" Text="Build Your Hero"></Label>
+        <Label TextColor="Gray" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" Text="Build Your Hero"></Label>
 
-        <Label Text="Character Name"></Label>
+        <Label TextColor="Gray" Text="Character Name"></Label>
         <Entry BackgroundColor="Gray" x:Name="CharacterName" Placeholder="Character Name"></Entry>
 
-        <Label Text="Class"></Label>
+        <Label TextColor="Gray" Text="Class"></Label>
         <Picker BackgroundColor="Gray" x:Name="Class" Title="Select...">
             <Picker.Items>
                 <x:String>Fighter</x:String>
                 <x:String>Magi</x:String>
-                <x:String>Rouge</x:String>
+                <x:String>Rogue</x:String>
                 <x:String>Cleric</x:String>
             </Picker.Items>
         </Picker>
 
-        <Label Text="Race"></Label>
+        <Label TextColor="Gray" Text="Race"></Label>
         <Picker BackgroundColor="Gray" x:Name="Race" Title="Select...">
             <Picker.Items>
                 <x:String>Human</x:String>

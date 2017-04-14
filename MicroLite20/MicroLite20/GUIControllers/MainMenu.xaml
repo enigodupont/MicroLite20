@@ -7,7 +7,7 @@
 
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
 
-        <Label FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Main Menu"></Label>
+        <Label TextColor="Gray" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" Text="Main Menu"></Label>
         
         <Button Text="Show All Characters" x:Name="showAllChars">
 

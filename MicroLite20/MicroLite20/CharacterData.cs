@@ -3,7 +3,7 @@ using MicroLite20.Utility;
 
 namespace MicroLite20 {
 
-    class PlayerData {
+    public class CharacterData {
         public string characterName = "Nanashi";
 
         //Attributes
@@ -15,6 +15,7 @@ namespace MicroLite20 {
         //Skills
         public int attackRoll = 0;
         public int damageRoll = 0;
+        public int skillRoll = 0;
         public int physical = 0;
         public int subterfuge = 0;
         public int knowledge = 0;
@@ -23,23 +24,47 @@ namespace MicroLite20 {
         public int exp = 0;
         public int myLevel = 1;
         public string playerRace = "Human";
-        public playerClass myClass = null;
+        public CharacterClass myClass = null;
 
-        public PlayerData(int str, int dex, int mind, string race) {
+        public CharacterData(int str, int dex, int mind, string charClass, string race, string charName) {
             STR = str;
             DEX = dex;
             MIND = mind;
 
             HP = STR + (DiceRoller.rollD6());
+            playerRace = race;
+            characterName = charName;
 
-            switch (race) {
+            switch (charClass) {
+                case "Fighter":
+                    myClass = new Fighter();
+                    break;
+
+                case "Magi":
+                    myClass = new Magi();
+                    break;
+
+                case "Rogue":
+                    myClass = new Rogue();
+                    break;
+
+                case "Cleric":
+                    myClass = new Cleric();
+                    break;
+            }
+
+            switch (playerRace) {
                 case "Human":
+                    ++skillRoll;
                     break;
                 case "Elf":
+                    MIND += 2;
                     break;
                 case "Dwarf":
+                    STR += 2;
                     break;
                 case "Halfling":
+                    DEX += 2;
                     break;
                 default:
                     break;
@@ -49,11 +74,10 @@ namespace MicroLite20 {
         public void applyEXP(int newEXP) {
             exp += newEXP;
 
-            if(exp >= (10*myLevel)) {
+            while(exp >= (10*myLevel)) {
                 exp -= (10 * myLevel);
                 levelUp();
             }
-
 
         }
 

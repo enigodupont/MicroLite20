@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MicroLite20.GUIControllers.displayCharacter"
+             BackgroundColor="Black"
+             Title="Character Info">
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Label TextColor="Gray" x:Name="CharName" Text="Name: "></Label>
+
+        <Label x:Name="CharRace" TextColor="Gray" Text="Race: "></Label>
+
+        <Label x:Name="CharHP" TextColor="Gray" Text="HP: "></Label>
+
+        <Label x:Name="CharSTR" TextColor="Gray" Text="STR: "></Label>
+
+        <Label x:Name="CharDEX" TextColor="Gray" Text="DEX: "></Label>
+
+        <Label x:Name="CharMIND" TextColor="Gray" Text="MIND: "></Label>
+
+    </StackLayout>
+</ContentPage>
