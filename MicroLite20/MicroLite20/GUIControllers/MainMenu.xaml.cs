@@ -12,8 +12,13 @@ namespace MicroLite20.GUIControllers {
         public MainMenu() {
             InitializeComponent();
 
+            showAllChars.Clicked += openShowAllChars;
             addCharButton.Clicked += openCreateCharacter;
             
+        }
+
+        async public void openShowAllChars(Object sender, EventArgs args) {
+            await Navigation.PushAsync(new showAllCharacters());
         }
 
         async public void openCreateCharacter(Object sender, EventArgs args) {

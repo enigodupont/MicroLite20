@@ -33,7 +33,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)CharacterClasses\CharacterClass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CharacterClasses\Rogue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CharacterData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GUIControllers\showAllCharacters.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Utility\DiceRoller.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\CharFileHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)GUIControllers\displayCharacter.xaml">

@@ -5,37 +5,53 @@
              BackgroundColor="Black"
              Title="Create a Character">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+    <StackLayout x:Name="itemViewStack" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
 
-        <Label TextColor="Gray" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" Text="Build Your Hero"></Label>
+        <StackLayout.Children>
+            <Label TextColor="Gray" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" Text="Build Your Hero"></Label>
 
-        <Label TextColor="Gray" Text="Character Name"></Label>
-        <Entry BackgroundColor="Gray" x:Name="CharacterName" Placeholder="Character Name"></Entry>
+            <Label TextColor="Gray" Text="Character Name"></Label>
+            <Entry BackgroundColor="Gray" x:Name="CharacterName" Placeholder="Character Name"></Entry>
 
-        <Label TextColor="Gray" Text="Class"></Label>
-        <Picker BackgroundColor="Gray" x:Name="Class" Title="Select...">
-            <Picker.Items>
-                <x:String>Fighter</x:String>
-                <x:String>Magi</x:String>
-                <x:String>Rogue</x:String>
-                <x:String>Cleric</x:String>
-            </Picker.Items>
-        </Picker>
+            <Label TextColor="Gray" Text="Class"></Label>
+            <Picker BackgroundColor="Gray" x:Name="Class" Title="Select...">
+                <Picker.Items>
+                    <x:String>Fighter</x:String>
+                    <x:String>Magi</x:String>
+                    <x:String>Rogue</x:String>
+                    <x:String>Cleric</x:String>
+                </Picker.Items>
+            </Picker>
 
-        <Label TextColor="Gray" Text="Race"></Label>
-        <Picker BackgroundColor="Gray" x:Name="Race" Title="Select...">
-            <Picker.Items>
-                <x:String>Human</x:String>
-                <x:String>Elf</x:String>
-                <x:String>Dwarf</x:String>
-                <x:String>Halfling</x:String>
-            </Picker.Items>
-        </Picker>
+            <Label TextColor="Gray" Text="Race"></Label>
+            <Picker BackgroundColor="Gray" x:Name="Race" Title="Select...">
+                <Picker.Items>
+                    <x:String>Human</x:String>
+                    <x:String>Elf</x:String>
+                    <x:String>Dwarf</x:String>
+                    <x:String>Halfling</x:String>
+                </Picker.Items>
+            </Picker>
 
-        <Button x:Name="rollButton" IsEnabled="False" Text="Roll Stats"></Button>
+            <Button x:Name="rollButton" IsVisible="False" Text="Roll For Stats"></Button>
 
+            <Label x:Name="rollResult" TextColor="Gray" FontAttributes="Bold" FontSize="Large" Text=""></Label>
+
+
+        <StackLayout x:Name="StatButtons" IsVisible="False" HorizontalOptions="Center" Orientation="Horizontal">
+            <Button x:Name="AddToSTR" Text="Add to STR"></Button>
+            <Button x:Name="AddToDEX" Text="Add to DEX"></Button>
+            <Button x:Name="AddToMIND" Text="Add to MIND"></Button>
+        </StackLayout>
+
+
+        <Button IsVisible="False" x:Name="displayCharPage" Text="Display Character"></Button>
+        </StackLayout.Children>
     </StackLayout>
-   
+
+
+
+
 
 
 </ContentPage>

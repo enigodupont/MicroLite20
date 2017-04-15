@@ -6,17 +6,59 @@
              Title="Character Info">
 
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <Label TextColor="Gray" x:Name="CharName" Text="Name: "></Label>
+        <StackLayout.Children>
+            <Label x:Name="CharName" TextColor="Gray" Text="Name: "></Label>
 
-        <Label x:Name="CharRace" TextColor="Gray" Text="Race: "></Label>
+            <Label x:Name="CharRace" TextColor="Gray" Text="Race: "></Label>
 
-        <Label x:Name="CharHP" TextColor="Gray" Text="HP: "></Label>
+            <Label x:Name="charClass" TextColor="Gray" Text="Class: "></Label>
 
-        <Label x:Name="CharSTR" TextColor="Gray" Text="STR: "></Label>
+            <BoxView Color="White" HeightRequest="1"></BoxView>
 
-        <Label x:Name="CharDEX" TextColor="Gray" Text="DEX: "></Label>
+            <Label x:Name="CharLevel"  TextColor="Gray" Text="Level: "></Label>
 
-        <Label x:Name="CharMIND" TextColor="Gray" Text="MIND: "></Label>
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Label x:Name="CharExp"  TextColor="Gray" Text="Exp: "></Label>
+                <Entry WidthRequest="100" HorizontalOptions="EndAndExpand" Placeholder="0" BackgroundColor="Gray" x:Name="expToAdd"></Entry>
+                <Button HorizontalOptions="End" Text="Apply EXP" x:Name="addEXP"></Button>
+            </StackLayout>
+            
+            <BoxView Color="White" HeightRequest="1"></BoxView>
+
+            <Label x:Name="CharHP" TextColor="Gray" Text="HP: "></Label>
+
+            <BoxView Color="White" HeightRequest="1"></BoxView>
+
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Label x:Name="CharSTR" TextColor="Gray" Text="STR: "></Label>
+                <Label HorizontalOptions="EndAndExpand" x:Name="CharSTRMOD" TextColor="Gray" Text="STR MOD: "></Label>
+                <Button IsVisible="False" x:Name="increaseSTR" Text="Increase"></Button>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <StackLayout.Children>
+                    
+                </StackLayout.Children>
+                <Label  x:Name="CharDEX" TextColor="Gray" Text="DEX: "></Label>
+                <Label HorizontalOptions="EndAndExpand" x:Name="CharDEXMOD" TextColor="Gray" Text="DEX MOD: "></Label>
+                <Button IsVisible="False" x:Name="increaseDEX" Text="Increase"></Button>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Label x:Name="CharMIND" TextColor="Gray" Text="MIND: "></Label>
+                <Label HorizontalOptions="EndAndExpand" x:Name="CharMINDMOD" TextColor="Gray" Text="MIND MOD: "></Label>
+                <Button IsVisible="False" x:Name="increaseMIND" Text="Increase"></Button>
+            </StackLayout>
+
+
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <StackLayout.Children>
+                    <Button x:Name="saveButton" Text="Save Character"></Button>
+                    <Button x:Name="deleteButton" Text="Delete Character" ></Button>
+                </StackLayout.Children>
+            </StackLayout>
+            <Button x:Name="ReturnButton" Text="Return to Main Menu"></Button>
+        </StackLayout.Children>
 
     </StackLayout>
 </ContentPage>

@@ -1,4 +1,7 @@
-﻿namespace MicroLite20.Classes {
+﻿using System.Xml.Serialization;
+
+namespace MicroLite20.Classes {
+    [XmlInclude(typeof(CharacterClass))]
     public class Cleric : CharacterClass {
 
         public Cleric() {

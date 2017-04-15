@@ -1,59 +1,76 @@
 ﻿using MicroLite20.Classes;
 using MicroLite20.Utility;
+using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace MicroLite20 {
-
     public class CharacterData {
-        public string characterName = "Nanashi";
+        public string characterName { get; set; }
 
         //Attributes
-        public int HP = 0;
-        public int STR = 0;
-        public int DEX = 0;
-        public int MIND = 0;
+        public int HP  { get; set; }
+        public int STR { get; set; }
+        public int STRMOD {
+            get { return (STR - 10) / 2; }
+        }
+        public int DEX { get; set; }
+        public int DEXMOD {
+            get { return (DEX - 10) / 2; }
+        }
+        public int MIND { get; set; }
+        public int MINDMOD {
+            get { return (MIND - 10) / 2; }
+        }
 
         //Skills
-        public int attackRoll = 0;
-        public int damageRoll = 0;
-        public int skillRoll = 0;
-        public int physical = 0;
-        public int subterfuge = 0;
-        public int knowledge = 0;
-        public int communication = 0;
+        public int attackRoll { get; set; }
+        public int damageRoll { get; set; }
+        public int skillRoll { get; set; }
 
-        public int exp = 0;
-        public int myLevel = 1;
-        public string playerRace = "Human";
-        public CharacterClass myClass = null;
+        public int physical { get; set; }
+        public int subterfuge { get; set; }
+        public int knowledge { get; set; }
+        public int communication { get; set; }
 
-        public CharacterData(int str, int dex, int mind, string charClass, string race, string charName) {
+        public int exp { get; set; }
+        public int myLevel { get; set; }
+        public string charRace { get; set; }
+        public string characterClassString { get; set; }
+        public CharacterClass characterClass = null;
+
+        public int attributePoints = 0;
+
+        public CharacterData() { }
+
+        public CharacterData(int str, int dex, int mind, string chClass, string race, string charName) {
             STR = str;
             DEX = dex;
             MIND = mind;
 
             HP = STR + (DiceRoller.rollD6());
-            playerRace = race;
+            characterClassString = chClass;
+            charRace = race;
             characterName = charName;
 
-            switch (charClass) {
+            switch (characterClassString) {
                 case "Fighter":
-                    myClass = new Fighter();
+                    characterClass = new Fighter();
                     break;
 
                 case "Magi":
-                    myClass = new Magi();
+                    characterClass = new Magi();
                     break;
 
                 case "Rogue":
-                    myClass = new Rogue();
+                    characterClass = new Rogue();
                     break;
 
                 case "Cleric":
-                    myClass = new Cleric();
+                    characterClass = new Cleric();
                     break;
             }
 
-            switch (playerRace) {
+            switch (charRace) {
                 case "Human":
                     ++skillRoll;
                     break;
@@ -84,8 +101,8 @@ namespace MicroLite20 {
         public void levelUp() {
             ++myLevel;
 
-            if((myLevel % 3) == 0) {
-                //TODO: Message box prompt to upgrade WILL/STR/MIND
+            if(myLevel % 3 == 0) {
+                ++attributePoints;
             }
 
             // Add 1d6 to hitpoints
@@ -100,7 +117,32 @@ namespace MicroLite20 {
             ++knowledge;
             ++communication;
 
-            myClass.levelUp(myLevel);
+            characterClass.levelUp(myLevel);
+        }
+
+        public int getPhysical() {
+            return characterClass.physicalBonus + physical;
+        }
+
+        public int getSubterfuge() {
+            return characterClass.subterfugeBonus + subterfuge;
+        }
+
+        public int getKnowledge() {
+            return characterClass.knowledgeBonus + knowledge;
+        }
+
+        public int getCommunication() {
+            return characterClass.communicationBonus + communication;
+        }
+
+        public string serialize() {
+
+            JsonSerializerSettings settings = new JsonSerializerSettings() {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            return JsonConvert.SerializeObject(this,settings);
+            
         }
     }
 }
