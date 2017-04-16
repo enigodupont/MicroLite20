@@ -3,7 +3,7 @@ using System;
 using Xamarin.Forms;
 
 namespace MicroLite20.GUIControllers {
-    public partial class displayCharacter : ContentPage
+    public partial class displayCharacter : TabbedPage
 	{
 
         CharacterData myPlayerData;
@@ -42,11 +42,11 @@ namespace MicroLite20.GUIControllers {
             increaseMIND.Clicked += modifyMIND;
         }
 
-        private async void returnToMainMenu(Object sender, EventArgs args) {
+        private async void returnToMainMenu(Object sender, EventArgs e) {
             await Navigation.PopToRootAsync(true);
         }
 
-        public void applyEXP(Object sender, EventArgs args) {
+        public void applyEXP(Object sender, EventArgs e) {
             int toApply;
             if(int.TryParse(expToAdd.Text, out toApply)) {
                 int oldLevel = myPlayerData.myLevel;
@@ -66,7 +66,7 @@ namespace MicroLite20.GUIControllers {
             }
         }
 
-        public void modifySTR(Object sender, EventArgs args) {
+        public void modifySTR(Object sender, EventArgs e) {
             myPlayerData.STR++;
             CharSTR.Text = "STR: " + myPlayerData.STR.ToString();
             CharSTRMOD.Text = "STR MOD: " + myPlayerData.STRMOD.ToString();
@@ -78,7 +78,7 @@ namespace MicroLite20.GUIControllers {
             }
         }
 
-        public void modifyDEX(Object sender, EventArgs args) {
+        public void modifyDEX(Object sender, EventArgs e) {
             myPlayerData.DEX++;
             CharDEX.Text = "DEX: " + myPlayerData.DEX.ToString();
             CharDEXMOD.Text = "DEX MOD: " + myPlayerData.DEXMOD.ToString();
@@ -90,7 +90,7 @@ namespace MicroLite20.GUIControllers {
             }
         }
 
-        public void modifyMIND(Object sender, EventArgs args) {
+        public void modifyMIND(Object sender, EventArgs e) {
             myPlayerData.MIND++;
             CharMIND.Text = "MIND: " + myPlayerData.MIND.ToString();
             CharMINDMOD.Text = "MIND MOD: " + myPlayerData.MINDMOD.ToString();
@@ -102,14 +102,26 @@ namespace MicroLite20.GUIControllers {
             }
         }
 
-        public async void saveCharacter(Object sender, EventArgs args) {
+        public async void saveCharacter(Object sender, EventArgs e) {
             CharFileHandler.SaveCharacterToFileSystem(myPlayerData);
             await DisplayAlert("Save Status", "Save Succeded", "Understood");
         }
 
-        public async void deleteCharacter(Object sender, EventArgs args) {
+        public async void deleteCharacter(Object sender, EventArgs e) {
             CharFileHandler.DeleteCharacterFromFileSystem(myPlayerData);
             await DisplayAlert("Delete Status", "Delete Succeded", "Understood");
+        }
+
+        private void RollD6_Clicked(object sender, EventArgs e) {
+            RollResult.Text = DiceRoller.rollD6().ToString();
+        }
+
+        private void RollD20_Clicked(object sender, EventArgs e) {
+            RollResult.Text = DiceRoller.rollD20().ToString();
+        }
+
+        private void RollD10_Clicked(object sender, EventArgs e) {
+            RollResult.Text = DiceRoller.rollD10().ToString();
         }
     }
 
