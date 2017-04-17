@@ -25,7 +25,7 @@ namespace MicroLite20.GUIControllers
             Class.SelectedIndexChanged += confirmClassChange;
 
             Race.SelectedIndexChanged += confirmRaceChange;
-
+            
             rollButton.Clicked += rollStats;
             AddToSTR.Clicked += setStatRoll;
             AddToDEX.Clicked += setStatRoll;
